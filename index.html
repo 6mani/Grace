@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Beauty - Luxury Salon & Aesthetics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #740010;
+            --gold: #735c00;
+            --cream: #fcf9f8;
+            --dark-brown: #5a403f;
+            --black: #1c1b1b;
+            --light-gold: rgba(115, 92, 0, 0.3);
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Hanken Grotesk', sans-serif;
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            top: 0;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.figma.com/api/mcp/asset/53e25889-7249-453d-81c0-164a1e9f3637.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(252, 249, 248, 0.8), rgba(252, 249, 248, 0.3) 50%, rgba(252, 249, 248, 0));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 768px;
+            padding: 20px;
+        }
+
+        .hero-heading {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 40px;
+            color: var(--burgundy);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: -0.4px;
+            font-weight: 400;
+            text-shadow: 0px 2px 1px rgba(0,0,0,0.06), 0px 4px 1.5px rgba(0,0,0,0.07);
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--black);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 576px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--burgundy);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 9999px;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Hanken Grotesk', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #5a000b;
+            transform: translateY(-2px);
+            box-shadow: 0px 8px 16px rgba(116, 0, 16, 0.2);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--burgundy);
+            color: var(--burgundy);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--burgundy);
+            color: white;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--cream);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .about-container {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 32px;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+
+        .divider {
+            width: 64px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 16px auto;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--dark-brown);
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--cream);
+            padding: 120px 20px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .services-header-description {
+            font-size: 16px;
+            color: var(--dark-brown);
+            margin-top: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 64px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 262.5px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 32px;
+        }
+
+        .service-badge {
+            display: inline-block;
+            border: 1px solid var(--light-gold);
+            padding: 5px 13px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+        }
+
+        .service-badge-text {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            line-height: 1.33;
+        }
+
+        .service-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 24px;
+            color: var(--black);
+            margin-bottom: 16px;
+            font-weight: 400;
+            line-height: 1.33;
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--dark-brown);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .service-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--burgundy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        .arrow-icon {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Audit/Form Section */
+        .audit-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #f5f1ed 100%);
+            padding: 120px 20px;
+        }
+
+        .audit-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .audit-content h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 32px;
+            color: var(--burgundy);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .audit-content p {
+            font-size: 16px;
+            color: var(--dark-brown);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0d5ce;
+            border-radius: 8px;
+            font-family: 'Hanken Grotesk', sans-serif;
+            font-size: 14px;
+            color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0px 0px 0px 3px rgba(115, 92, 0, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #a89a8f;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--burgundy);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background-color: #5a000b;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .payment-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            background-color: var(--gold);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .payment-link:hover {
+            background-color: #5a4600;
+            transform: translateY(-2px);
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 28px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .section-heading {
+                font-size: 28px;
+            }
+
+            .audit-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .audit-content h2 {
+                font-size: 28px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .services-grid {
+                gap: 40px;
+            }
+
+            .service-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-heading {
+                font-size: 24px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .section-heading {
+                font-size: 24px;
+            }
+
+            .audit-section {
+                padding: 80px 16px;
+            }
+
+            .audit-content h2 {
+                font-size: 24px;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+
+            .cta-button {
+                font-size: 11px;
+                padding: 14px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-heading">Where Elegance<br>Meets Perfection</h1>
+            <p class="hero-description">Experience the pinnacle of luxury beauty services in a sanctuary designed for the modern woman.</p>
+            <button class="cta-button" onclick="document.querySelector('.audit-section').scrollIntoView({behavior: 'smooth'})">Book Your Experience</button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="section-heading">A Legacy of Beauty</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Grace Beauty is more than a salon; it is a destination for transformation and self-discovery. We blend timeless elegance with cutting-edge techniques to offer a bespoke beauty experience tailored to the discerning individual. Step into our world and let us unveil your most radiant self.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="section-heading">Our Curated Services</h2>
+                <p class="services-header-description">Discover our range of premium treatments designed to elevate your natural beauty.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Bridal Service -->
+                <div class="service-card">
+                    <img src="https://www.figma.com/api/mcp/asset/0f498749-18e0-44ac-a548-ba8fde3b7e3c.png" alt="Bridal Artistry" class="service-image">
+                    <div class="service-content">
+                        <div class="service-badge">
+                            <span class="service-badge-text">Bridal</span>
+                        </div>
+                        <h3 class="service-title">Bridal Artistry</h3>
+                        <p class="service-description">Comprehensive bridal styling, ensuring you look breathtaking from every angle on your special day.</p>
+                        <a href="#" class="service-link">
+                            Explore Service
+                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hair Service -->
+                <div class="service-card">
+                    <img src="https://www.figma.com/api/mcp/asset/336a92b7-d926-4ab8-8e9f-cfd32473d45b.png" alt="Professional Hair Styling" class="service-image">
+                    <div class="service-content">
+                        <div class="service-badge">
+                            <span class="service-badge-text">Haircare</span>
+                        </div>
+                        <h3 class="service-title">Professional Hair Styling</h3>
+                        <p class="service-description">Expert cutting, coloring, and styling tailored to your features and lifestyle by our master stylists.</p>
+                        <a href="#" class="service-link">
+                            Explore Service
+                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Skincare Service -->
+                <div class="service-card">
+                    <img src="https://www.figma.com/api/mcp/asset/6da758ee-35a1-4219-8db7-e520599688f3.png" alt="Advanced Skincare" class="service-image">
+                    <div class="service-content">
+                        <div class="service-badge">
+                            <span class="service-badge-text">Aesthetics</span>
+                        </div>
+                        <h3 class="service-title">Advanced Skincare</h3>
+                        <p class="service-description">Rejuvenating facials and advanced aesthetic treatments utilizing medical-grade products for flawless skin.</p>
+                        <a href="#" class="service-link">
+                            Explore Service
+                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Beauty Academy Service -->
+                <div class="service-card">
+                    <img src="https://www.figma.com/api/mcp/asset/5b64afc9-8aa3-49dc-9c2f-e0eb1ceb8d1f.png" alt="Beauty Academy" class="service-image">
+                    <div class="service-content">
+                        <div class="service-badge">
+                            <span class="service-badge-text">Education</span>
+                        </div>
+                        <h3 class="service-title">Beauty Academy</h3>
+                        <p class="service-description">Master the art of beauty with our comprehensive curriculum taught by industry-leading professionals.</p>
+                        <a href="#" class="service-link">
+                            Explore Academy
+                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit/Booking Section -->
+    <section class="audit-section">
+        <div class="audit-container">
+            <div class="audit-content">
+                <h2>Get Your Free Beauty Audit</h2>
+                <p>Discover personalized beauty recommendations tailored to your unique features and preferences. Our expert consultants will guide you through a complimentary audit session and create a customized beauty plan just for you.</p>
+                <p>Start your journey to radiance with a professional consultation today. Limited slots available!</p>
+            </div>
+
+            <div class="form-container">
+                <form id="auditForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Get Free Audit</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+
+                <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" class="payment-link">Proceed to Payment</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-mfYLkAZ8_nlAJ2-bT25iI4B-D8K4PRniQ-_NMWz8vYpYFEkl_uKD0HaAmenk2f-1Sw/exec';
+
+        const auditForm = document.getElementById('auditForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+
+        auditForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // Validate
+            if (!name || !email || !phone) {
+                showError('Please fill in all fields');
+                return;
+            }
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            formMessage.innerHTML = '';
+            formMessage.className = 'form-message';
+
+            // Build URL with query parameters
+            const params = new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone
+            });
+
+            const url = APPSCRIPT_URL + '?' + params.toString();
+
+            // Fetch with GET and no-cors
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                showSuccess('Thank you! Your audit request has been received. We\'ll contact you soon.');
+                auditForm.reset();
+            })
+            .catch(() => {
+                showError('There was an issue submitting your request. Please try again.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Free Audit';
+            });
+        });
+
+        function showSuccess(message) {
+            formMessage.textContent = message;
+            formMessage.className = 'form-message success';
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        }
+
+        function showError(message) {
+            formMessage.textContent = message;
+            formMessage.className = 'form-message error';
+        }
+    </script>
+</body>
+</html>
