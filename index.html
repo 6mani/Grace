@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Beauty - Luxury Salon & Aesthetics</title>
+    <title>Grace Beauty Saloon - Professional Beauty Care & Bridal Makeup</title>
     <style>
         * {
             margin: 0;
@@ -12,678 +12,1191 @@
         }
 
         :root {
-            --burgundy: #740010;
-            --gold: #735c00;
-            --cream: #fcf9f8;
-            --dark-brown: #5a403f;
-            --black: #1c1b1b;
-            --light-gold: rgba(115, 92, 0, 0.3);
+            --primary-dark: #570013;
+            --primary-gold: #735c00;
+            --light-bg: #fbf9f8;
+            --border-light: #e4e2e1;
+            --text-dark: #584141;
+            --text-light: #1b1c1c;
         }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: 'Hanken Grotesk', sans-serif;
-            color: var(--black);
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #fbf9f8;
+            color: var(--text-dark);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(251, 249, 248, 0.9);
+            backdrop-filter: blur(6px);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: -0.6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn-book-nav {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-book-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(87, 0, 19, 0.2);
         }
 
         /* Hero Section */
-        .hero-section {
-            position: relative;
-            min-height: 600px;
+        .hero {
+            margin-top: 80px;
+            min-height: 800px;
+            background: linear-gradient(90deg, #fbf9f8 0%, #fbf9f8 100%), linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             overflow: hidden;
-            top: 0;
         }
 
-        .hero-section::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://www.figma.com/api/mcp/asset/53e25889-7249-453d-81c0-164a1e9f3637.png');
+            background-image: url('https://www.figma.com/api/mcp/asset/503b8a8f-fd85-483f-8585-aff7af56d8f5.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(251, 249, 248, 0.8) 0%, rgba(251, 249, 248, 0.4) 50%, #fbf9f8 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            padding: 0 64px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-tag {
+            color: var(--primary-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.96px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-dark);
+            max-width: 672px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 17px 33px;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(87, 0, 19, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-dark);
+            padding: 18px 34px;
+            border-radius: 9999px;
+            border: 2px solid var(--primary-dark);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Trust Strip */
+        .trust-strip {
+            background-color: #f6f3f2;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 33px 64px;
+        }
+
+        .trust-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 26px;
+            height: 26px;
+        }
+
+        .trust-text {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fbf9f8;
+            padding: 120px 64px;
+        }
+
+        .about-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 10px 40px rgba(128, 0, 32, 0.04);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            bottom: -16px;
+            left: -16px;
+            background-color: rgba(204, 167, 48, 0.1);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: -0.36px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .about-tag {
+            color: var(--primary-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .about-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .about-link:hover {
+            gap: 12px;
+        }
+
+        .arrow-icon {
+            width: 9.3px;
+            height: 7px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+            padding: 120px 64px;
+        }
+
+        .services-header {
+            max-width: 1280px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .services-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: -0.36px;
+        }
+
+        .services-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: #f6f3f2;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 10px 40px rgba(128, 0, 32, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 45px rgba(128, 0, 32, 0.1);
+        }
+
+        .service-card.large {
+            grid-column: span 2;
+           /* grid-row: span 2;*/
+            position: relative;
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 192px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .service-card.large .service-card-image {
+            height: 400px;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-card.large .service-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            color: white;
+            padding: 32px;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: inherit;
+        }
+
+        .service-card.large h3 {
+            font-size: 24px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: inherit;
+            opacity: 0.9;
+        }
+
+        .service-card.large .badge {
+            display: inline-block;
+            background: rgba(123, 84, 85, 0.9);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .service-card.large .service-link {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 13px 25px;
+            border-radius: 9999px;
+            font-size: 14px;
+            width: fit-content;
+            backdrop-filter: blur(6px);
+        }
+
+        .service-link:hover {
+            gap: 8px;
+        }
+
+        /* Parallax Section */
+        .parallax {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.figma.com/api/mcp/asset/738a17bd-52e0-42b2-8064-498b467aedf9.png');
             background-size: cover;
             background-position: center;
             z-index: 1;
         }
 
-        .hero-section::after {
-            content: '';
+        .parallax-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(252, 249, 248, 0.8), rgba(252, 249, 248, 0.3) 50%, rgba(252, 249, 248, 0));
+            width: 100%;
+            height: 100%;
+            background-color: rgba(87, 0, 19, 0.8);
             z-index: 2;
         }
 
-        .hero-content {
+        .parallax-content {
             position: relative;
             z-index: 3;
-            text-align: center;
-            max-width: 768px;
-            padding: 20px;
+            max-width: 1280px;
+            padding: 0 64px;
         }
 
-        .hero-heading {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 40px;
-            color: var(--burgundy);
-            margin-bottom: 30px;
+        .parallax-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 600;
             line-height: 1.2;
-            letter-spacing: -0.4px;
-            font-weight: 400;
-            text-shadow: 0px 2px 1px rgba(0,0,0,0.06), 0px 4px 1.5px rgba(0,0,0,0.07);
+            margin-bottom: 24px;
         }
 
-        .hero-description {
-            font-size: 18px;
-            color: var(--black);
-            margin-bottom: 40px;
-            line-height: 1.6;
-            max-width: 576px;
-            margin-left: auto;
-            margin-right: auto;
+        .parallax-content p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.9;
         }
 
-        .cta-button {
-            background-color: var(--burgundy);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 9999px;
-            border: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Hanken Grotesk', sans-serif;
-            text-decoration: none;
-            display: inline-block;
+        /* Booking Section */
+        .booking {
+            background-color: #fbf9f8;
+            padding: 120px 256px;
         }
 
-        .cta-button:hover {
-            background-color: #5a000b;
-            transform: translateY(-2px);
-            box-shadow: 0px 8px 16px rgba(116, 0, 16, 0.2);
-        }
-
-        .cta-button.secondary {
-            background-color: transparent;
-            border: 2px solid var(--burgundy);
-            color: var(--burgundy);
-        }
-
-        .cta-button.secondary:hover {
-            background-color: var(--burgundy);
-            color: white;
-        }
-
-        /* About Section */
-        .about-section {
-            background-color: var(--cream);
-            padding: 120px 20px;
-            text-align: center;
-        }
-
-        .about-container {
+        .booking-form {
+            background-color: white;
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 49px;
+            box-shadow: 0px 10px 20px rgba(128, 0, 32, 0.04);
             max-width: 768px;
             margin: 0 auto;
         }
 
-        .section-heading {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 32px;
-            color: var(--burgundy);
-            margin-bottom: 20px;
-            font-weight: 400;
-            line-height: 1.25;
-        }
-
-        .divider {
-            width: 64px;
-            height: 1px;
-            background-color: var(--gold);
-            margin: 16px auto;
-        }
-
-        .section-description {
-            font-size: 18px;
-            color: var(--dark-brown);
-            line-height: 1.6;
-            margin-top: 20px;
-        }
-
-        /* Services Section */
-        .services-section {
-            background-color: var(--cream);
-            padding: 120px 20px;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-header {
+        .booking-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
-        .services-header-description {
-            font-size: 16px;
-            color: var(--dark-brown);
-            margin-top: 15px;
-        }
-
-        .services-grid {
-            display: grid;
-            gap: 64px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 262.5px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .service-content {
-            padding: 32px;
-        }
-
-        .service-badge {
-            display: inline-block;
-            border: 1px solid var(--light-gold);
-            padding: 5px 13px;
-            border-radius: 9999px;
-            margin-bottom: 16px;
-        }
-
-        .service-badge-text {
-            font-size: 12px;
-            color: var(--gold);
+        .booking-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
             font-weight: 600;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            line-height: 1.33;
-        }
-
-        .service-title {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 24px;
-            color: var(--black);
-            margin-bottom: 16px;
-            font-weight: 400;
-            line-height: 1.33;
-        }
-
-        .service-description {
-            font-size: 16px;
-            color: var(--dark-brown);
-            line-height: 1.5;
-            margin-bottom: 24px;
-        }
-
-        .service-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--burgundy);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 12px;
-            letter-spacing: 1.2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .service-link:hover {
-            gap: 12px;
-        }
-
-        .arrow-icon {
-            width: 12px;
-            height: 12px;
-        }
-
-        /* Audit/Form Section */
-        .audit-section {
-            background: linear-gradient(135deg, var(--cream) 0%, #f5f1ed 100%);
-            padding: 120px 20px;
-        }
-
-        .audit-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .audit-content h2 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 32px;
-            color: var(--burgundy);
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .audit-content p {
-            font-size: 16px;
-            color: var(--dark-brown);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .form-container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+            color: var(--primary-dark);
+            letter-spacing: -0.36px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .form-group:last-child {
-            margin-bottom: 0;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
 
         .form-group label {
             display: block;
             font-weight: 600;
-            color: var(--black);
+            font-size: 12px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--text-dark);
             margin-bottom: 8px;
-            font-size: 14px;
         }
 
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0d5ce;
+            padding: 15px 17px;
+            border: 1px solid #e0bfbf;
             border-radius: 8px;
-            font-family: 'Hanken Grotesk', sans-serif;
-            font-size: 14px;
-            color: var(--black);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0px 0px 0px 3px rgba(115, 92, 0, 0.1);
+            background-color: #fbf9f8;
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--text-light);
         }
 
         .form-group input::placeholder {
-            color: #a89a8f;
+            color: #6b7280;
         }
 
-        .submit-btn {
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-dark);
+            background-color: #fbf9f8;
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 24px 0;
+            color: var(--text-dark);
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: rgba(224, 191, 191, 0.4);
+        }
+
+        .btn-submit {
             width: 100%;
-            background-color: var(--burgundy);
+            background-color: var(--primary-dark);
             color: white;
-            padding: 14px;
+            padding: 16px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 9999px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 14px;
+            letter-spacing: 0.7px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
-            font-family: 'Hanken Grotesk', sans-serif;
         }
 
-        .submit-btn:hover {
-            background-color: #5a000b;
+        .btn-submit:hover {
+            box-shadow: 0 10px 25px rgba(87, 0, 19, 0.3);
             transform: translateY(-2px);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+        .btn-whatsapp {
+            width: 100%;
+            background-color: rgba(37, 211, 102, 0.1);
+            color: #075e54;
+            padding: 17px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .payment-link {
-            display: block;
-            text-align: center;
-            margin-top: 16px;
-            background-color: var(--gold);
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            text-decoration: none;
+        .btn-whatsapp:hover {
+            background-color: rgba(37, 211, 102, 0.15);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #e4e2e1;
+            padding: 48px 64px;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
             font-weight: 600;
-            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-section-title {
+            font-weight: 600;
             font-size: 14px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-dark);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #f0eded;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         }
 
-        .payment-link:hover {
-            background-color: #5a4600;
-            transform: translateY(-2px);
+        .social-link:hover {
+            background-color: var(--primary-dark);
         }
 
-        .form-message {
-            margin-top: 16px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: center;
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
             font-size: 14px;
-            font-weight: 500;
-            display: none;
+            color: var(--text-dark);
+            line-height: 1.5;
         }
 
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            display: block;
+        .footer-bottom {
+            border-top: 1px solid rgba(224, 191, 191, 0.3);
+            padding-top: 33px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            display: block;
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-dark);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-heading {
-                font-size: 28px;
+            .navbar-content {
+                padding: 0 32px;
             }
 
-            .hero-description {
-                font-size: 16px;
+            .hero-content {
+                padding: 0 32px;
             }
 
-            .section-heading {
-                font-size: 28px;
+            .hero-title {
+                font-size: 32px;
             }
 
-            .audit-container {
+            .about-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .audit-content h2 {
-                font-size: 28px;
-            }
-
-            .form-container {
-                padding: 30px;
+                gap: 32px;
             }
 
             .services-grid {
-                gap: 40px;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .service-title {
-                font-size: 20px;
+            .service-card.large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .booking {
+                padding: 120px 32px;
+            }
+
+            .trust-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-heading {
+            .navbar-content {
+                padding: 0 16px;
+                height: 60px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
                 font-size: 24px;
             }
 
-            .hero-description {
-                font-size: 14px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .section-heading {
-                font-size: 24px;
-            }
-
-            .audit-section {
-                padding: 80px 16px;
-            }
-
-            .audit-content h2 {
-                font-size: 24px;
-            }
-
-            .form-container {
-                padding: 20px;
-            }
-
-            .cta-button {
-                font-size: 11px;
-                padding: 14px 24px;
+            .service-card.large {
+                grid-column: span 1;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="logo">
+                <span class="logo-text">Grace Beauty Saloon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn-book-nav" onclick="scrollToBooking()">Book Appointment</button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-heading">Where Elegance<br>Meets Perfection</h1>
-            <p class="hero-description">Experience the pinnacle of luxury beauty services in a sanctuary designed for the modern woman.</p>
-            <button class="cta-button" onclick="document.querySelector('.audit-section').scrollIntoView({behavior: 'smooth'})">Book Your Experience</button>
+            <div class="hero-tag">Professional Beauty Parlour in Kovur, Chennai</div>
+            <h1 class="hero-title">Enhance Your Natural Beauty With Grace</h1>
+            <p class="hero-subtitle">Professional beauty care and bridal makeup at Grace Beauty Saloon. Look beautiful, feel confident, and enjoy personalized care.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="scrollToBooking()">Book Your Session</button>
+                <button class="btn-secondary" onclick="scrollToServices()">Explore Services</button>
+            </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <h2 class="section-heading">A Legacy of Beauty</h2>
-            <div class="divider"></div>
-            <p class="section-description">
-                Grace Beauty is more than a salon; it is a destination for transformation and self-discovery. We blend timeless elegance with cutting-edge techniques to offer a bespoke beauty experience tailored to the discerning individual. Step into our world and let us unveil your most radiant self.
-            </p>
+    <!-- Trust Strip -->
+    <section class="trust-strip">
+        <div class="trust-container">
+            <div class="trust-item">
+                <span class="trust-text">✓ PROFESSIONAL CARE</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-text">✓ PREMIUM PRODUCTS</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-text">✓ PERSONALIZED SERVICE</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-text">✓ 5-STAR RATED</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://www.figma.com/api/mcp/asset/21eafabe-0380-4d9e-bbe5-ec4a3c42cfeb.png" alt="Grace Beauty Saloon Interior">
+            </div>
+            <div class="about-text">
+                <div class="about-tag">OUR STORY</div>
+                <h2>Discover True Elegance in Kovur</h2>
+                <p>At Grace Beauty Saloon, we believe that true beauty stems from confidence and self-care. Located in the heart of Kovur, Chennai, our sanctuary is designed to offer a retreat from the everyday hustle.</p>
+                <p>Our team of expert stylists are dedicated to providing personalized treatments using premium products. Whether you're preparing for your special day with our signature bridal makeup or seeking a rejuvenating spa experience, we ensure every visit leaves you feeling radiant and empowered.</p>
+                <a href="#" class="about-link">Visit Our Saloon →</a>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-section">
-        <div class="services-container">
-            <div class="services-header">
-                <h2 class="section-heading">Our Curated Services</h2>
-                <p class="services-header-description">Discover our range of premium treatments designed to elevate your natural beauty.</p>
+    <section class="services" id="services">
+        <div class="services-header">
+            <div class="about-tag">OUR EXPERTISE</div>
+            <h2>Curated Beauty Rituals</h2>
+        </div>
+        <div class="services-grid">
+            <!-- Bridal Makeup - Large Card -->
+            <div class="service-card large">
+                <div class="service-card-image">
+                    <img src="https://www.figma.com/api/mcp/asset/4e12e0bf-6115-478a-8d6d-8efa2fe0283f.png" alt="Bridal Makeup">
+                </div>
+                <div class="service-card-content">
+                    <h3>Bridal Makeup</h3>
+                    <p>Look stunning on your special day with professional bridal makeup tailored to your style. Get a beautiful, long-lasting bridal look at Grace Beauty Saloon in Kovur, Chennai.</p>
+                    <!--<button class="service-link btn-primary" style="margin-top: 16px; padding: 13px 25px; font-size: 14px; letter-spacing: 0.7px;">Book Consultation</button>-->
+                </div>
             </div>
 
-            <div class="services-grid">
-                <!-- Bridal Service -->
-                <div class="service-card">
-                    <img src="https://www.figma.com/api/mcp/asset/0f498749-18e0-44ac-a548-ba8fde3b7e3c.png" alt="Bridal Artistry" class="service-image">
-                    <div class="service-content">
-                        <div class="service-badge">
-                            <span class="service-badge-text">Bridal</span>
-                        </div>
-                        <h3 class="service-title">Bridal Artistry</h3>
-                        <p class="service-description">Comprehensive bridal styling, ensuring you look breathtaking from every angle on your special day.</p>
-                        <a href="#" class="service-link">
-                            Explore Service
-                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+            <!-- Hair Cut & Spa -->
+            <div class="service-card">
+                <div class="service-card-image">
+                    <img src="https://www.figma.com/api/mcp/asset/f0b924e1-8872-486e-b233-ccf599a5c7be.png" alt="Hair Cut & Spa">
                 </div>
-
-                <!-- Hair Service -->
-                <div class="service-card">
-                    <img src="https://www.figma.com/api/mcp/asset/336a92b7-d926-4ab8-8e9f-cfd32473d45b.png" alt="Professional Hair Styling" class="service-image">
-                    <div class="service-content">
-                        <div class="service-badge">
-                            <span class="service-badge-text">Haircare</span>
-                        </div>
-                        <h3 class="service-title">Professional Hair Styling</h3>
-                        <p class="service-description">Expert cutting, coloring, and styling tailored to your features and lifestyle by our master stylists.</p>
-                        <a href="#" class="service-link">
-                            Explore Service
-                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+                <div class="service-card-content">
+                    <h3>Hair Cut & Spa</h3>
+                    <p>Professional hair care and styling to keep your hair healthy, smooth, and beautiful every day.</p>
+                    <!-- <a href="#" class="service-link">Book Now →</a> -->
                 </div>
+            </div>
 
-                <!-- Skincare Service -->
-                <div class="service-card">
-                    <img src="https://www.figma.com/api/mcp/asset/6da758ee-35a1-4219-8db7-e520599688f3.png" alt="Advanced Skincare" class="service-image">
-                    <div class="service-content">
-                        <div class="service-badge">
-                            <span class="service-badge-text">Aesthetics</span>
-                        </div>
-                        <h3 class="service-title">Advanced Skincare</h3>
-                        <p class="service-description">Rejuvenating facials and advanced aesthetic treatments utilizing medical-grade products for flawless skin.</p>
-                        <a href="#" class="service-link">
-                            Explore Service
-                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+            <!-- Advanced Facial -->
+            <div class="service-card">
+                <div class="service-card-image">
+                    <img src="https://www.figma.com/api/mcp/asset/15135e69-f227-445f-a237-f42f55d7c260.png" alt="Advanced Facial">
                 </div>
+                <div class="service-card-content">
+                    <h3>Advanced Facial</h3>
+                    <p>Refresh and brighten your skin with professional facial care.
+Enjoy smooth, fresh and radiant skin at Grace Beauty Saloon, Kovur.</p>
+                    <!--<a href="#" class="service-link">Book Now →</a>-->
+                </div>
+            </div>
 
-                <!-- Beauty Academy Service -->
-                <div class="service-card">
-                    <img src="https://www.figma.com/api/mcp/asset/5b64afc9-8aa3-49dc-9c2f-e0eb1ceb8d1f.png" alt="Beauty Academy" class="service-image">
-                    <div class="service-content">
-                        <div class="service-badge">
-                            <span class="service-badge-text">Education</span>
-                        </div>
-                        <h3 class="service-title">Beauty Academy</h3>
-                        <p class="service-description">Master the art of beauty with our comprehensive curriculum taught by industry-leading professionals.</p>
-                        <a href="#" class="service-link">
-                            Explore Academy
-                            <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6H10M6 2L10 6L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+            <!-- Mani & Pedi -->
+            <div class="service-card">
+                <div class="service-card-image">
+                    <img src="https://www.figma.com/api/mcp/asset/de74f1b0-869e-4c72-8f37-a0cad992af4d.png" alt="Mani & Pedi">
+                </div>
+                <div class="service-card-content">
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Pamper your hands and feet with professional manicure and pedicure services.
+Enjoy clean, smooth and beautifully groomed hands and feet at Grace Beauty Saloon, Kovur, Chennai.</p>
+                    <a href="#" class="service-link">Book Now →</a>
+                </div>
+            </div>
+
+            <!-- Hair Coloring -->
+            <div class="service-card" style="background-color: #ffdad9; border: 1px solid rgba(224, 191, 191, 0.3);">
+                <div class="service-card-content">
+                    <h3>Hair Coloring</h3>
+                    <p>Global colors, highlights, and balayage techniques.</p>
+                    <a href="#" class="service-link">Book →</a>
+                </div>
+            </div>
+
+            <!-- Threading & Waxing -->
+            <div class="service-card" style="background-color: #f0eded; border: 1px solid rgba(224, 191, 191, 0.3);">
+                <div class="service-card-content">
+                    <h3>Threading & Waxing</h3>
+                    <p>Gentle, precise hair removal services.</p>
+                    <a href="#" class="service-link">Book →</a>
+                </div>
+            </div>
+
+            <!-- De-Tan Therapy -->
+            <div class="service-card" style="background-color: #f0eded; border: 1px solid rgba(224, 191, 191, 0.3);">
+                <div class="service-card-content">
+                    <h3>De-Tan Therapy</h3>
+                    <p>Restore your natural complexion safely.</p>
+                    <a href="#" class="service-link">Book →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Audit/Booking Section -->
-    <section class="audit-section">
-        <div class="audit-container">
-            <div class="audit-content">
-                <h2>Get Your Free Beauty Audit</h2>
-                <p>Discover personalized beauty recommendations tailored to your unique features and preferences. Our expert consultants will guide you through a complimentary audit session and create a customized beauty plan just for you.</p>
-                <p>Start your journey to radiance with a professional consultation today. Limited slots available!</p>
-            </div>
-
-            <div class="form-container">
-                <form id="auditForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">Get Free Audit</button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
-
-                <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" class="payment-link">Proceed to Payment</a>
-            </div>
+    <!-- Parallax Section -->
+    <section class="parallax">
+        <div class="parallax-bg"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+            <h2>Look Beautiful. Feel Confident.</h2>
+            <p>Step into Grace Beauty Saloon and step out as the best version of yourself.</p>
+            <button class="btn-primary"  Style="background-color: #f0f0f0; color: #570013;" onclick="scrollToBooking()">Start Your Journey</button>
         </div>
     </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="booking-form">
+            <div class="booking-header">
+                <div class="about-tag">RESERVE YOUR TIME</div>
+                <h2>Book an Appointment</h2>
+            </div>
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Bridal Makeup</option>
+                        <option value="hair-cut-spa">Hair Cut & Spa</option>
+                        <option value="facial">Advanced Facial</option>
+                        <option value="mani-pedi">Mani & Pedi</option>
+                        <option value="hair-coloring">Hair Coloring</option>
+                        <option value="threading-waxing">Threading & Waxing</option>
+                        <option value="de-tan">De-Tan Therapy</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <select id="time" name="time" required>
+                            <option value="">Morning (10 AM - 1 PM)</option>
+                            <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
+                            <option value="evening">Evening (4 PM - 8 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirm Request</button>
+
+                <div class="form-divider">or</div>
+
+                <button type="button" class="btn-whatsapp" onclick="handleWhatsAppBooking()">
+                    💬 Book via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Grace Beauty Saloon</h3>
+                <p style="font-size: 14px; line-height: 1.5; margin-bottom: 16px;">Discover professional beauty care at Grace Beauty Saloon,<br> offering bridal makeup, hair styling, hair spa, facials and<br> complete beauty salon services in Kovur, Chennai.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div class="footer-section-title">QUICK LINKS</div>
+                <ul>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <div class="footer-section-title">CONTACT INFO</div>
+                <div class="contact-item">
+                    <div class="contact-text">Grace Beauty Saloon, Kovur EB,<br>Chennai, Tamil Nadu</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-text">+91 8668058448</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-text">Mon - Sun: 10:00 AM - 8:00 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">© 2026 Grace Beauty Saloon Kovur EB.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        const APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-mfYLkAZ8_nlAJ2-bT25iI4B-D8K4PRniQ-_NMWz8vYpYFEkl_uKD0HaAmenk2f-1Sw/exec';
+        // Smooth scroll functions
+        function scrollToBooking() {
+            const bookingSection = document.getElementById('booking');
+            bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
 
-        const auditForm = document.getElementById('auditForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
+        function scrollToServices() {
+            const servicesSection = document.getElementById('services');
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
 
-        auditForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Handle booking form submission
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            alert(`Thank you ${fullName}! Your appointment request has been submitted.\n\nService: ${service}\nDate: ${date}\nTime: ${time}\n\nWe will contact you at ${phone} to confirm.`);
+            
+            // Reset form
+            document.getElementById('bookingForm').reset();
+        }
 
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
+        // Handle WhatsApp booking
+        function handleWhatsAppBooking() {
+            const fullName = document.getElementById('fullName').value || 'Customer';
+            const service = document.getElementById('service').value || 'Service';
+            const message = `Hi Grace Beauty Saloon! I would like to book an appointment for ${service}. My name is ${fullName}.`;
+            const whatsappUrl = `https://wa.me/918668058448?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
 
-            // Validate
-            if (!name || !email || !phone) {
-                showError('Please fill in all fields');
-                return;
+        // Add parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                const scrollPosition = window.pageYOffset;
+                parallaxBg.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
             }
-
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            formMessage.innerHTML = '';
-            formMessage.className = 'form-message';
-
-            // Build URL with query parameters
-            const params = new URLSearchParams({
-                name: name,
-                email: email,
-                phone: phone
-            });
-
-            const url = APPSCRIPT_URL + '?' + params.toString();
-
-            // Fetch with GET and no-cors
-            fetch(url, {
-                method: 'GET',
-                mode: 'no-cors'
-            })
-            .then(() => {
-                showSuccess('Thank you! Your audit request has been received. We\'ll contact you soon.');
-                auditForm.reset();
-            })
-            .catch(() => {
-                showError('There was an issue submitting your request. Please try again.');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get Free Audit';
-            });
         });
 
-        function showSuccess(message) {
-            formMessage.textContent = message;
-            formMessage.className = 'form-message success';
-            setTimeout(() => {
-                formMessage.className = 'form-message';
-            }, 5000);
-        }
-
-        function showError(message) {
-            formMessage.textContent = message;
-            formMessage.className = 'form-message error';
-        }
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.style.color = 'var(--text-dark)');
+                    const activeLink = document.querySelector(`.nav-links a[href="#${section.id}"]`);
+                    if (activeLink) {
+                        activeLink.style.color = 'var(--primary-dark)';
+                        activeLink.style.fontWeight = '700';
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
